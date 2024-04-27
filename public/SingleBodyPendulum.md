@@ -7,7 +7,7 @@ tags:
   - 微分方程式
   - 解析力学
 private: false
-updated_at: '2024-04-18T19:50:15+09:00'
+updated_at: '2024-04-27T19:10:00+09:00'
 id: 45721a02b6803308a542
 organization_url_name: null
 slide: false
@@ -18,8 +18,6 @@ ignorePublish: false
 単振り子の数値計算例は多く見つかりますが、数値的エネルギー保存性についてはあまり情報を見つけることができなかったため、こちらに記事として残しておきます。
 丸め誤差の範囲でエネルギーを保存するスキームの導出と解析結果を主眼とします。
 実装は最後に掲載しています。
-
-![video.gif](https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/274439/7b141731-9379-0f1a-f402-8009373c1940.gif)
 
 追記：[多重振り子](https://qiita.com/NaokiHori/items/736cf183c20eb2e91247)についても考察しました。
 
@@ -158,7 +156,6 @@ m g l \cos \theta
 次の章ではこれを数値的に解くことを考えます。
 初期条件として$\omega = \theta = 0$を与え、$m = l = -g = 1$とします。
 時間刻みは特段表記がなければ$\Delta t = 10^{-2}$とし、$t = 10^2$まで積分することとします。
-可視化すると始めのgif画像のようになります。
 
 以下では総エネルギーについて議論しますが、変化量を定量的に表すため正規化の仕方を考える必要があります。
 上述の通りポテンシャルエネルギーは定数分だけ任意性がありますので、ここでは初期状態の総エネルギーが$1$、全エネルギーを失って完全に静止した状態が$0$となるように正規化することとします。
@@ -213,7 +210,7 @@ Crank-Nicolson法(図中`C.-N.`)
 ```
 を考え、それぞれの場合に対するエネルギーの時間変化を次に示します。
 
-<img src="https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/274439/0692c774-9369-2bcb-538d-74cad0372d83.png" width=75% />
+<img src="https://raw.githubusercontent.com/NaokiHori/MyQiitaArticles/main/artifacts/SingleBodyPendulum/plot/explicit_velocity.png" width=75% />
 
 オイラー陽解法を用いた場合、概ね単調増加する傾向が見て取れます。
 すなわち振幅が徐々に大きくなっている（100時間単位の積分でエネルギーが50%程度増加する）ということで、これは非物理的であると共に安定性の観点からも好ましくありません。
@@ -226,14 +223,14 @@ Crank-Nicolson法(図中`C.-N.`)
 実装は簡単のため収束判定ではなく十分な回数（20回）の反復としています。
 全てを示すと冗長なので、代表的なケースのみ示します。
 
-<img src="https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/274439/c5144e50-ac31-5fa9-cf9e-32eb51c9a799.png" width=75% />
+<img src="https://raw.githubusercontent.com/NaokiHori/MyQiitaArticles/main/artifacts/SingleBodyPendulum/plot/non_explicit_velocity.png" width=75% />
 
 特筆すべきは逆にエネルギーが著しく減少する場合もあるということでしょう。
 計算安定性の観点からすれば増加するよりはよほど好ましい性質ですが、散逸がないのに振幅が徐々に小さくなってやがて停止するということで、やはり非物理的であると言えるでしょう。
 また角速度と角度の両方にCrank-Nicolson法を適用した赤線の場合、保存性が非常によいことがわかります。
 ほぼ直線に見えますが、拡大してみると
 
-<img src="https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/274439/5d19b09b-0cda-2dbd-24f4-dd26644e2c9d.png" width=75% />
+<img src="https://raw.githubusercontent.com/NaokiHori/MyQiitaArticles/main/artifacts/SingleBodyPendulum/plot/crank_nicolson_expanded.png" width=75% />
 
 実際は$10^{-6}$程度の幅で全エネルギーが増減していることがわかりますが、エネルギー保存性の観点から見れば他の手法に比べて頭一つ抜けているのは確かでしょう。
 結果を解釈するとすれば、時間に対して対称のスキームであることと、ニ次精度をもつことが要因と言えるかもしれません。
@@ -452,16 +449,16 @@ m g l \cos \theta
 \right)
 \end{aligned}
 ```
-を用いて計算した場合のエネルギーを以下に示します（対数を使用するため1からのズレをプロットしています）。
+を用いて計算した場合のエネルギー（1からのズレ）を以下に示します。
 
-<img src="https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/274439/acc4a7a2-f4a3-72f9-d1d4-ea63bd2bac99.png" width=75% />
+<img src="https://raw.githubusercontent.com/NaokiHori/MyQiitaArticles/main/artifacts/SingleBodyPendulum/plot/energy_conserving_expanded.png" width=75% />
 
 倍精度を使用しているので、エネルギーが確かにおおよそ丸め誤差の範囲で保存していることが確認できます。
 
 Crank-Nicolson法との違いを明確にするため、刻み幅を10倍($\Delta t = 10^{-1}$)に大きくして計算した結果も示します。
 縦軸は1からのズレを絶対値を取った上で対数表示しています。
 
-<img src="https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/274439/fe0ff948-ba14-20db-9048-163421aea83f.png" width=75% />
+<img src="https://raw.githubusercontent.com/NaokiHori/MyQiitaArticles/main/artifacts/SingleBodyPendulum/plot/compare_crank_nicolson_energy_conserving.png" width=75% />
 
 二次精度であることからも推測できる通り、Crank-Nicolson法においては振動が$10^{-4}$程度とおよそ元の100倍になっていますが、エネルギー保存スキームでは依然丸め誤差程度を保っています（青線の不連続な部分は誤差が$10^{-16}$以下です）。
 解の精度（例えば振り子の周期）は当然刻み幅に依存しますが、スキームの設計を工夫することで保存性を刻み幅に依存しない性質とすることができます。
@@ -470,16 +467,14 @@ Crank-Nicolson法との違いを明確にするため、刻み幅を10倍($\Delt
 エネルギー保存スキームとその他保存はしないものの単調増加や減少を示さなかった二つのスキームの時間刻みに対する収束性を次に示します。
 $t = 10$の時点での$\theta$の値を対象とし、誤差$\epsilon$をRichardson extrapolationによって得られる擬似的な理論解からのズレと定義しています。
 
-<img src="https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/274439/e7c5364a-d0c7-a794-8cae-303f00361218.jpeg" width=75% />
+<img src="https://raw.githubusercontent.com/NaokiHori/MyQiitaArticles/main/artifacts/SingleBodyPendulum/plot/convergence.png" width=75% />
 
 予想どおり、オイラー法を適用したものは一次、その他（Crank-Nicolsonおよびエネルギー保存スキーム）は二次の精度を示します。
 
 # 実装　
 
-最後にコードを示します。
+[コード](https://github.com/NaokiHori/MyQiitaArticles/tree/main/artifacts/SingleBodyPendulum)はこちらにおいてあります。
 上で取り上げた様々な組み合わせを```kernel```として個々で実装し、積分する関数```integrate```に渡しています。
-
-https://gist.github.com/NaokiHori/fb7067f088015589a75118abcf941177
 
 # あとがき
 
