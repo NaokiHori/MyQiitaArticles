@@ -7,7 +7,7 @@ tags:
   - 微分方程式
   - 解析力学
 private: false
-updated_at: '2024-04-27T19:10:00+09:00'
+updated_at: '2024-07-05T02:49:57+09:00'
 id: 45721a02b6803308a542
 organization_url_name: null
 slide: false
@@ -473,8 +473,8 @@ $t = 10$の時点での$\theta$の値を対象とし、誤差$\epsilon$をRichar
 
 # 実装　
 
-[コード](https://github.com/NaokiHori/MyQiitaArticles/tree/main/artifacts/SingleBodyPendulum)はこちらにおいてあります。
-上で取り上げた様々な組み合わせを```kernel```として個々で実装し、積分する関数```integrate```に渡しています。
+コードは[こちら](https://github.com/NaokiHori/MyQiitaArticles/tree/main/artifacts/SingleBodyPendulum)においてあります。
+上で取り上げた様々な組み合わせを`kernel`として個々で実装し、積分する関数`integrate`に渡しています。
 
 # あとがき
 

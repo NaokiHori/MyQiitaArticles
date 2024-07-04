@@ -6,7 +6,7 @@ tags:
   - フラクタル図形
   - マンデルブロ集合
 private: false
-updated_at: '2024-02-09T02:02:30+09:00'
+updated_at: '2024-07-05T02:49:56+09:00'
 id: c6d276ae336a3bdb26f6
 organization_url_name: null
 slide: false
@@ -54,12 +54,12 @@ z_{0} = 0
 
 同様に漸化式の無限項$z_{\infty}$を求めることはできないので、十分な回数の反復をもって収束と判定します。
 
-[こちら](https://gitlab.com/NaokiHori/Mandelbrot)にマンデルブロ集合を可視化する簡単な実装（PythonによるシンプルなものとCによるOpenMP並列化されたもの）をおいてあります。
+[こちら](https://github.com/NaokiHori/MyQiitaArticles/tree/main/artifacts/Fractal)にマンデルブロ集合を可視化する簡単な実装（PythonによるシンプルなものとCによるOpenMP並列化されたもの）をおいてあります。
 
 以下の有名な図において、白が収束する数（マンデルブロ集合内）、黒が発散する数（マンデルブロ集合外）です。
 
 <div align="center">
-<img src="https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/274439/a30dadfa-3b56-3005-9bf7-81c24adbe191.jpeg" width=50% />
+<img src="https://raw.githubusercontent.com/NaokiHori/MyQiitaArticles/main/artifacts/Fractal/mandelbrot.jpg" width=50% />
 </div>
 
 複雑な構造は基本的に白い部分と黒い部分の間に存在しますので、上の図の境界部分にフォーカスしていくことになりますが、ランダムかつ安定して拡大するには少し工夫が必要です。
