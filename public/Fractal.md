@@ -6,7 +6,7 @@ tags:
   - フラクタル図形
   - マンデルブロ集合
 private: false
-updated_at: '2024-07-05T02:49:56+09:00'
+updated_at: '2024-07-05T02:56:56+09:00'
 id: c6d276ae336a3bdb26f6
 organization_url_name: null
 slide: false
