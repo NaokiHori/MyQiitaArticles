@@ -6,7 +6,7 @@ tags:
   - 物理
   - 微分方程式
 private: false
-updated_at: '2024-02-06T03:12:34+09:00'
+updated_at: '2024-11-18T01:16:52+09:00'
 id: 736cf183c20eb2e91247
 organization_url_name: null
 slide: false
@@ -19,7 +19,7 @@ ignorePublish: false
 
 ![thumbnail.png](https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/274439/c2aaac23-6a7c-68b5-89b2-1e2c7ce2cf42.png)
 
-実装と詳細は[こちら](https://naokihori.github.io/Pendulum/index.html)においています。
+実装は[こちら](https://naokihori.github.io/Pendulum/index.html)です。
 
 https://naokihori.github.io/Pendulum/index.html
 
@@ -32,7 +32,7 @@ https://naokihori.github.io/Pendulum/index.html
 # 支配方程式（連続）
 
 まずは連続空間での支配方程式を示しますが、煩雑なためかなり省略しています。
-詳細の必要があれば[ドキュメント](https://naokihori.github.io/Pendulum/equation/main.html)をご覧ください。
+詳細の必要があれば[ドキュメント](https://naokihori.github.io/Pendulum/docs/equation/main.html)をご覧ください。
 
 鉛直方向に加速度$g$が加えられている二次元空間の原点を中心とし、$N$個の質点が連なった多重振り子を考えます。
 簡単のため原点と質点、および隣り合う質点同士は長さが$l$で質量の無い剛体棒で繋がっているとし、全ての質点の質量は等しく$m$とします。
@@ -438,7 +438,7 @@ $\delta \theta$は$\Delta t \rightarrow 0$で$0$より、これも極限で元�
 
 |運動、位置、全エネルギー|全エネルギーのみ、最後まで|
 |--------------------|----------------------|
-|<img src="https://naokihori.github.io/Pendulum/_images/energy21.jpg"/>|<img src="https://naokihori.github.io/Pendulum/_images/energy22.jpg"/>|
+|<img src="https://raw.githubusercontent.com/NaokiHori/Pendulum/refs/heads/artifact/artifacts/energy21.jpg"/>|<img src="https://raw.githubusercontent.com/NaokiHori/Pendulum/refs/heads/artifact/artifacts/energy22.jpg"/>|
 
 $t = 10^2$までを示した左の図は悪くないように見えますが、横一直線であるべき全エネルギー（黒線）はわずかながら振動していて保存していないことがわかります。
 特に$t = 10^3$まで積分する（右の図）と、おおよそ単調減少の傾向が見られ、最終的には（散逸系でないにも関わらず）エネルギーを25%程失うことがわかります。
@@ -450,7 +450,7 @@ $t = 10^2$までを示した左の図は悪くないように見えますが、�
 
 |運動、位置、全エネルギー|全エネルギー、最後まで|
 |--------------------|------------------|
-|<img src="https://naokihori.github.io/Pendulum/_images/energy11.jpg"/>|<img src="https://naokihori.github.io/Pendulum/_images/energy12.jpg"/>|
+|<img src="https://raw.githubusercontent.com/NaokiHori/Pendulum/refs/heads/artifact/artifacts/energy11.jpg"/>|<img src="https://raw.githubusercontent.com/NaokiHori/Pendulum/refs/heads/artifact/artifacts/energy12.jpg"/>|
 
 エネルギーがおおよそ丸め誤差（$10^{-12}$程度）で保存していることが確認できます。
 
