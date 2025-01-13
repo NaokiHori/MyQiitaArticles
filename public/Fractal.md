@@ -19,7 +19,7 @@ ignorePublish: false
 # TL;DR
 
 複雑度を定量的に定義し、決められた範囲内の複雑度の高い場所を拡大していくことで、集合の「絵的に面白い」部位をランダムかつ自動的に選択します。
-成果物は[こちら](https://naokihori.github.io/GameCentre/mandelbrot/index.html)に置いてあります。
+成果物は[こちら](https://naokihori.github.io/Trash/mandelbrot/index.html)に置いてあります。
 
 # 問題設定
 
@@ -137,9 +137,9 @@ https://youtu.be/6C9H1WNWY7s
 
 最後にコードを示します。
 
-https://github.com/NaokiHori/GameCentre/tree/main/mandelbrot
+https://github.com/NaokiHori/Trash/tree/main/mandelbrot
 
-特にこの記事のメインの探索アルゴリズムは[こちら](https://github.com/NaokiHori/GameCentre/blob/main/mandelbrot/src/mandelbrot.rs)に実装しています。
+特にこの記事のメインの探索アルゴリズムは[こちら](https://github.com/NaokiHori/Trash/blob/main/mandelbrot/src/mandelbrot.rs)に実装しています。
 
 # あとがき
 
