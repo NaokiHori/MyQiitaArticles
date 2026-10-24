@@ -7,7 +7,7 @@ tags:
   - 微分方程式
   - 流体シミュレーション
 private: false
-updated_at: '2026-09-05T16:49:35+09:00'
+updated_at: '2026-10-24T17:19:12+09:00'
 id: 19e690b5a8bb0a567ead
 organization_url_name: null
 slide: false
@@ -18,7 +18,10 @@ agreed_posting_campaign_term: false
 # まえがき
 
 [こちらの論文](https://arxiv.org/abs/2603.09528)が興味深い題材だったので、使用されている数値手法について記事にしてみました。
-実装は[こちら](https://github.com/NaokiHori/CfdToolbox/tree/main/NonUniform)です。
+実装は以下です：
+
+- [CPU実装](https://github.com/NaokiHori/CfdToolbox/tree/main/NonUniform)
+- [GPU実装（Apple siliconのみ対応）](https://github.com/NaokiHori/GPU-Fluid)
 
 <img src="https://raw.githubusercontent.com/NaokiHori/CfdToolbox/refs/heads/main/NonUniform/cover.jpg" alt="cover image" />
 
